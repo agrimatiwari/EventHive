@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventHive | Thapar Campus Event Hub</title>
+    <meta name="description" content="EventHive is the campus event discovery platform for Thapar students." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand-wrap">
+          <div class="brand-mark">E</div>
+          <div>
+            <h1>EventHive</h1>
+            <p>Thapar Campus</p>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Main navigation">
+          <button class="nav-item active" data-page="home">
+            <span>🏠</span>
+            <span>Home</span>
+          </button>
+          <button class="nav-item" data-page="explore">
+            <span>🔎</span>
+            <span>Explore Events</span>
+          </button>
+          <button class="nav-item" data-page="my-events">
+            <span>📅</span>
+            <span>My Events</span>
+          </button>
+          <button class="nav-item" data-page="saved-events">
+            <span>💖</span>
+            <span>Saved Events</span>
+          </button>
+          <button class="nav-item" data-page="notifications">
+            <span>🔔</span>
+            <span>Notifications</span>
+          </button>
+          <button class="nav-item" data-page="profile">
+            <span>👤</span>
+            <span>My Profile</span>
+          </button>
+          <button class="nav-item" data-page="settings">
+            <span>⚙️</span>
+            <span>Settings</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-card" id="sidebar-user-card">
+          <div class="mini-avatar" id="sidebar-avatar">A</div>
+          <div>
+            <p class="label">Signed in as</p>
+            <h3 id="sidebar-user-name">Guest</h3>
+            <span class="verified-badge hidden" id="sidebar-verified-badge">Verified Student</span>
+            <button class="sidebar-logout hidden" id="sidebar-logout-button">Log out</button>
+            <button class="sidebar-delete-account hidden" id="sidebar-delete-account-button">Delete account</button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="mobile-topbar">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <div class="brand-slim">EventHive</div>
+        <div class="mobile-topbar-actions">
+          <button class="icon-button theme-toggle" id="mobile-theme-toggle" aria-label="Toggle theme">
+            <span id="mobile-theme-toggle-icon">🌙</span>
+          </button>
+          <button class="icon-button notification-button" id="mobile-notification-button" aria-label="Notifications" aria-expanded="false">
+            <span>🔔</span>
+            <span class="count-bubble" id="mobile-notification-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <main class="content" id="content-root">
+        <header class="topbar">
+          <button class="menu-toggle desktop-menu-toggle" id="desktop-menu-toggle" aria-label="Toggle navigation" aria-expanded="true">☰</button>
+          <div class="search-box">
+            <span>🔎</span>
+            <input id="global-search" type="text" placeholder="Search events, clubs, workshops..." />
+            <button class="search-button" id="search-button">Search</button>
+          </div>
+
+          <div class="topbar-actions">
+            <button class="icon-button theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+              <span id="theme-toggle-icon">🌙</span>
+            </button>
+            <div class="notification-wrapper">
+              <button class="icon-button notification-button" id="notification-button" aria-label="Notifications" aria-expanded="false">
+                <span>🔔</span>
+                <span class="count-bubble" id="notification-count">0</span>
+              </button>
+            </div>
+            <button class="cta-button" id="sign-out-button">Log out</button>
+          </div>
+        </header>
+        <div class="notification-panel hidden" id="notification-panel" aria-live="polite"></div>
+
+        <section class="page active" id="page-auth" data-page="auth">
+          <div class="auth-shell">
+            <div class="auth-hero">
+              <div class="hero-badge">Campus life, powered by EventHive</div>
+              <h2>Discover what’s happening across TIET.</h2>
+              <p>
+                From hackathons and workshops to club nights and fests, stay connected to the events that shape campus life.
+              </p>
+              <div class="auth-features">
+                <span>✅ Verified student access</span>
+                <span>✨ Personalized recommendations</span>
+                <span>📍 Events across campus</span>
+              </div>
+            </div>
+
+            <div class="auth-card">
+              <h2 class="register-heading">Create your student account</h2>
+              <form id="register-form" class="auth-form active">
+                <label>
+                  <span>Full Name</span>
+                  <input type="text" id="register-name" value="Rhea Sharma" placeholder="Your full name" required />
+                </label>
+                <label>
+                  <span>Thapar Email</span>
+                  <input type="email" id="register-email" placeholder="name@thapar.edu" required />
+                </label>
+                <label>
+                  <span>Password</span>
+                  <input type="password" id="register-password" placeholder="Create password" required />
+                </label>
+                <div class="row-two">
+                  <label>
+                    <span>Branch</span>
+                    <select id="register-branch" required>
+                      <option value="">Select</option>
+                      <option value="CSE">CSE</option>
+                      <option value="ECE">ECE</option>
+                      <option value="ME">ME</option>
+                      <option value="Civil">Civil</option>
+                      <option value="Biotech">Biotech</option>
+                      <option value="Chemical">Chemical</option>
+                      <option value="EEE">EEE</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>Year</span>
+                    <select id="register-year" required>
+                      <option value="">Select</option>
+                      <option value="1st Year">1st Year</option>
+                      <option value="2nd Year">2nd Year</option>
+                      <option value="3rd Year">3rd Year</option>
+                      <option value="4th Year">4th Year</option>
+                    </select>
+                  </label>
+                </div>
+                <button type="submit" class="primary-button">Create Account</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <section class="page" id="page-home" data-page="home"></section>
+        <section class="page" id="page-explore" data-page="explore"></section>
+        <section class="page" id="page-detail" data-page="detail"></section>
+        <section class="page" id="page-my-events" data-page="my-events"></section>
+        <section class="page" id="page-saved-events" data-page="saved-events"></section>
+        <section class="page" id="page-notifications" data-page="notifications"></section>
+        <section class="page" id="page-profile" data-page="profile"></section>
+        <section class="page" id="page-settings" data-page="settings"></section>
+      </main>
+    </div>
+
+    <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
